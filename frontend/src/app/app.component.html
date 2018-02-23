@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">User Profile Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item active" *ngIf="!authService.isLoggedIn">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active"><span class="fa fa-user"></span> Register</a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.isLoggedIn">
+        <a class="nav-link" routerLink="/" routerLinkActive="active"><span class="fa fa-sign-in"></span> Login</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active"><span class="fa fa-edit"></span> Edit Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isSuper">
+        <a class="nav-link" routerLink="/list" routerLinkActive="active"><span class="fa fa-users"></span> Manage Users</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn">
+        <a class="nav-link" (click)="authService.logout()"><span class="fa fa-sign-out"></span> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

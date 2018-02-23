@@ -1,0 +1,87 @@
+<div class="container">
+  <h3>Register</h3>
+  
+  <form [formGroup]="registerForm" novalidate (ngSubmit)="submit(registerForm.value, registerForm.valid)">
+    <div class="form-group row">
+      <label class="col-md-2" for="title"><span style="color: red;">*</span> Username:</label>
+      <input formControlName="username" type="text" class="col-md-10 form-control" id="username" name="username" />
+    </div>
+
+    <div *ngIf="(registerForm.controls.username.invalid) && (registerForm.controls.username.touched || registerForm.controls.username.dirty)" class="alert alert-danger">
+      <div *ngIf="registerForm.controls.username.errors.required">
+        Username is required.
+      </div>
+
+      <div *ngIf="registerForm.controls.username.errors.minlength">
+        Username must be at least 4 characters long.
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-2" for="author"><span style="color: red;">*</span> Password:</label>
+      <input formControlName="password" type="password" class="col-md-10 form-control" id="password" />
+    </div>
+
+    <div *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)" class="alert alert-danger">
+      <div *ngIf="registerForm.controls.password.errors.required">
+        Password is required.
+      </div>
+
+      <div *ngIf="registerForm.controls.password.errors.minlength">
+        Password must be at least 8 characters long.
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-2" for="title"><span style="color: red;">*</span> Confirm Password:</label>
+      <input formControlName="password_confirm" type="password" class="col-md-10 form-control" id="password_confirm" />
+    </div>
+
+    <div *ngIf="registerForm.controls.password_confirm.invalid && (registerForm.controls.password_confirm.dirty || registerForm.controls.password_confirm.touched)" class="alert alert-danger">
+      <div *ngIf="registerForm.controls.password_confirm.errors.required">
+        Password Confirmation is required.
+      </div>
+
+      <div *ngIf="registerForm.controls.password_confirm.errors.minlength">
+        Password Confirmation must be at least 8 characters long.
+      </div>
+
+      <div *ngIf="registerForm.controls.password_confirm.errors.nomatch">
+        Passwords must match.
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-2" for="author">First Name:</label>
+      <input formControlName="first_name" type="text" class="col-md-10 form-control" id="first_name" />
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2" for="title">Last Name:</label>
+      <input formControlName="last_name" type="text" class="col-md-10 form-control" id="last_name" />
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2">Gender:</label>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <label class="md-check">
+              <input type="radio" value="male" name="gender" formControlName="gender">&nbsp;Male
+            </label>
+          </div>
+          <div class="col-4">
+            <label class="md-check" for="gener">
+              <input type="radio" value="female" name="gender" formControlName="gender">&nbsp;Female
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2" for="author">Age</label>
+      <input formControlName="age" type="number" class="col-md-10 form-control" id="age" />
+    </div>
+    <div class="row">
+      <button class="col-lg-2 btn btn-success" type="submit"><span class="fa fa-plus-circle"></span> Register</button>
+    </div>
+  </form>
+</div>

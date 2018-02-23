@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>Login</h3>
+  <br />
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Login credentials failed.
+  </div>
+  
+  <form [formGroup]="loginForm" novalidate (ngSubmit)="login(loginForm.value, loginForm.valid)">
+    <div class="form-group row">
+      <label class="col-md-2" for="title">Username:</label>
+      <input formControlName="username" type="text" class="col-md-10 form-control" id="username" />
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2" for="author">Password</label>
+      <input formControlName="password" type="password" class="col-md-10 form-control" id="password" />
+    </div>
+    <div class="row">
+      <button class="col-lg-2 btn btn-success" type="submit"><span class="fa fa-sign-in"></span> Login</button>
+    </div>
+  </form>
+</div>

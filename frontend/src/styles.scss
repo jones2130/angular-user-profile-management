@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$fa-font-path: "styles/fontawesome/fonts";
+@import 'styles/fontawesome/scss/font-awesome';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
